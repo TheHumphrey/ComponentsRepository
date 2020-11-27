@@ -14,6 +14,7 @@ import { setData } from '../../store/reducers/data/actions';
 import { setLoading } from '../../store/reducers/loading/actions';
 
 import TableDeliveryStyle from './style';
+import { DeliveryData } from '../../interfaces/DeliveryData';
 
 const TableDelivery = (): ReactElement => {
   const data = useSelector((state: RootState) => state.data);
