@@ -1,10 +1,27 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Routes from './router';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+import { ThemeProvider } from 'styled-components';
+
+import store from './store';
+
+import light from './styles/themes/light';
+
+import GlobalStyle from './styles/global';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const App = () => (
+  <ThemeProvider theme={light}>
+    <React.StrictMode>
+      <Provider store={store}>
+        <GlobalStyle />
+        <Routes />
+      </Provider>
+    </React.StrictMode>
+  </ThemeProvider>
 );
+
+ReactDOM.render(<App />, document.getElementById('root'));
